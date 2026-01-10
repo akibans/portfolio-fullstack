@@ -16,7 +16,8 @@ A professional full stack portfolio website showcasing my skills, projects, and 
 - Mobile-friendly layout
 
 ## Live Demo
-(Will be deployed soon)
+https://akib-fullstack-portfolio.netlify.app/
+
 
 ## Author
 Akib Ansari  
