@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akib Ansari | Marketing-Driven Developer</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">AKIB ANSARI<span>.</span></a>
+            
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="#experience" class="nav-item">Experience</a></li>
+                <li><a href="#skills" class="nav-item">Skills</a></li>
+                <li><a href="#projects" class="nav-item">Projects</a></li>
+                <li><a href="#contactModal" class="nav-link-btn modal">Let's Talk</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="badge">Marketing Strategist ➔ Full Stack Web Developer</div>
+            <h1>Building digital products with <span class="text-gradient">marketing intelligence.</span></h1>
+            <p class="desc">
+                Ex-Hindustan Unilever Professional. I combine 2 years of consumer insight with modern Full-Stack engineering to build apps that don't just work—they convert.
+            </p>
+            <div class="buttons">
+                <a href="#projects" class="btn primary">View My Work &nbsp; &rarr;</a>
+                <a href="#contactModal" class="btn secondary modal">Let's Talk</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="section">
+        <div class="container">
+            <h2 class="section-title">Professional Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="time-dot"></div>
+                    <h3>Full Stack Web Developer</h3>
+                    <p class="company">Learning & Building | Present</p>
+                    <p>Developing scalable applications using React, Node.js, and MongoDB.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="time-dot"></div>
+                    <h3>Marketing Executive</h3>
+                    <p class="company">Hindustan Unilever (HUL) | 2023 - 2025</p>
+                    <p>Managed market trends and consumer data, which now fuels my user-centric approach to web development.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Frontend</h3>
+                    <ul>
+                        <li>React.js & Hooks</li>
+                        <li>Modern JavaScript (ES6+)</li>
+                        <li>Tailwind CSS & Responsive Design</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Backend</h3>
+                    <ul>
+                        <li>Node.js & Express</li>
+                        <li>MongoDB & Database Design</li>
+                        <li>RESTful API Development</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Strategic Edge</h3>
+                    <ul>
+                        <li>Consumer Behavior Analysis (HUL)</li>
+                        <li>Market Trend Synthesis</li>
+                        <li>Project Management & Git</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Selected Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="img-placeholder">QR Code Generator</div>
+                    </div>
+                    <div class="project-content">
+                        <span class="tech-tag">Node.js / NPM</span>
+                        <h3>Smart QR Engine</h3>
+                        <p>A back-end tool designed for offline-to-online marketing campaigns. Converts URLs to QR codes instantly.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/akibans" target="_blank" class="link">GitHub Repo</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="img-placeholder">WhatsApp Reminder</div>
+                    </div>
+                    <div class="project-content">
+                        <span class="tech-tag">JavaScript / APIs</span>
+                        <h3>Client Reminder Bot</h3>
+                        <p>Automated notification system to bridge the gap between business tasks and client communication.</p>
+                        <div class="project-links">
+                            <a href="#" class="link">Coming Soon</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <p>I'm looking for opportunities where I can apply my HUL corporate experience and technical skills.</p>
+                    <div class="contact-details">
+                        <p class="email-text"><strong>Email:</strong> akib81257@gmail.com</p>
+                        <p class="email-text"><strong>Location:</strong> Mumbai, India</p>
+                    </div>
+                </div>
+                <form name="contact" method="POST" data-netlify="true" action="/success.html" class="contact-form">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" placeholder="How can I help you?" rows="5" required></textarea>
+                    <button type="submit" class="btn primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <h3>Let's Connect</h3>
+                <p>Choose your preferred communication channel.</p>
+            </div>
+            
+            <div class="contact-options">
+                <a href="https://wa.me/917800068654" target="_blank" class="option-card">
+                    <div class="option-icon">💬</div>
+                    <div class="option-text">
+                        <strong>WhatsApp Chat</strong>
+                        <span>Quick text for instant replies</span>
+                    </div>
+                </a>
+
+                <a href="tel:+917800068654" class="option-card">
+                    <div class="option-icon">📞</div>
+                    <div class="option-text">
+                        <strong>Direct Call</strong>
+                        <span>Voice call for deep discussions</span>
+                    </div>
+                </a>
+
+                <a href="mailto:akib81257@gmail.com" class="option-card">
+                    <div class="option-icon">📧</div>
+                    <div class="option-text">
+                        <strong>Direct Email</strong>
+                        <span>Formal inquiries & documentation</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
