@@ -1,0 +1,23 @@
+{
+  "name": "portfolio-fullstack",
+  "version": "1.0.0",
+  "description": "This is my personal **Full Stack Portfolio Website** where I showcase my skills, projects, and learning journey as a **Frontend / Junior Full Stack Developer**.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akibans/portfolio-fullstack.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akibans/portfolio-fullstack/issues"
+  },
+  "homepage": "https://github.com/akibans/portfolio-fullstack#readme",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
