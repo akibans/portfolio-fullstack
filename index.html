@@ -152,18 +152,18 @@
                         <p class="email-text"><strong>Location:</strong> Mumbai, India</p>
                     </div>
                 </div>
-               <form
+       <form
   name="contact"
   method="POST"
   data-netlify="true"
   netlify-honeypot="bot-field"
-  action="/success.html"
   class="contact-form"
+  id="ajaxContactForm"
 >
-  <!-- REQUIRED for Netlify -->
+  <!-- Netlify required -->
   <input type="hidden" name="form-name" value="contact" />
 
-  <!-- Honeypot (spam protection) -->
+  <!-- Honeypot -->
   <p hidden>
     <label>
       Don’t fill this out:
@@ -171,31 +171,19 @@
     </label>
   </p>
 
-  <input
-    type="text"
-    name="name"
-    placeholder="Your Name"
-    required
-  />
-
-  <input
-    type="email"
-    name="email"
-    placeholder="Your Email"
-    required
-  />
-
-  <textarea
-    name="message"
-    placeholder="How can I help you?"
-    rows="5"
-    required
-  ></textarea>
+  <input type="text" name="name" placeholder="Your Name" required />
+  <input type="email" name="email" placeholder="Your Email" required />
+  <textarea name="message" placeholder="How can I help you?" rows="5" required></textarea>
 
   <button type="submit" class="btn primary">
-    Send Message
+    <span class="btn-text">Send Message</span>
+    <span class="btn-loader" hidden>Sending...</span>
   </button>
+
+  <!-- Status message -->
+  <p class="form-status" hidden></p>
 </form>
+
 
             </div>
         </div>

@@ -165,6 +165,23 @@ body.menu-open {
     border-color: var(--text-main);
     transform: translateY(-3px);
 }
+.form-status {
+  margin-top: 12px;
+  font-size: 0.9rem;
+}
+
+.form-status.success {
+  color: #38bdf8;
+}
+
+.form-status.error {
+  color: #f87171;
+}
+
+.btn-loader {
+  font-size: 0.9rem;
+}
+
 
 /* Sections */
 .section {
