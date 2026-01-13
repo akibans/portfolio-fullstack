@@ -152,12 +152,51 @@
                         <p class="email-text"><strong>Location:</strong> Mumbai, India</p>
                     </div>
                 </div>
-                <form name="contact" method="POST" data-netlify="true" action="/success.html" class="contact-form">
-                    <input type="text" name="name" placeholder="Your Name" required>
-                    <input type="email" name="email" placeholder="Your Email" required>
-                    <textarea name="message" placeholder="How can I help you?" rows="5" required></textarea>
-                    <button type="submit" class="btn primary">Send Message</button>
-                </form>
+               <form
+  name="contact"
+  method="POST"
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+  action="/success.html"
+  class="contact-form"
+>
+  <!-- REQUIRED for Netlify -->
+  <input type="hidden" name="form-name" value="contact" />
+
+  <!-- Honeypot (spam protection) -->
+  <p hidden>
+    <label>
+      Don’t fill this out:
+      <input name="bot-field" />
+    </label>
+  </p>
+
+  <input
+    type="text"
+    name="name"
+    placeholder="Your Name"
+    required
+  />
+
+  <input
+    type="email"
+    name="email"
+    placeholder="Your Email"
+    required
+  />
+
+  <textarea
+    name="message"
+    placeholder="How can I help you?"
+    rows="5"
+    required
+  ></textarea>
+
+  <button type="submit" class="btn primary">
+    Send Message
+  </button>
+</form>
+
             </div>
         </div>
     </section>
