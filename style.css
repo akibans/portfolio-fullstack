@@ -181,6 +181,18 @@ body.menu-open {
 .btn-loader {
   font-size: 0.9rem;
 }
+/* Placeholder visibility fix */
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #94a3b8;   /* visible gray */
+    opacity: 1;       /* Firefox fix */
+}
+
+/* Safari fix */
+.contact-form input::-webkit-input-placeholder,
+.contact-form textarea::-webkit-input-placeholder {
+    color: #94a3b8;
+}
 
 
 /* Sections */
