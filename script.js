@@ -66,7 +66,6 @@ if (form) {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    // UI state
     btnText.hidden = true;
     btnLoader.hidden = false;
     status.hidden = true;
@@ -74,15 +73,13 @@ if (form) {
     try {
       const formData = new FormData(form);
 
-      const response = await fetch('/', {
+      await fetch('/', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(formData).toString()
+        // ❌ NO headers here
       });
 
-      if (!response.ok) throw new Error('Submission failed');
-
-      // Success
+      // ✅ SUCCESS
       form.reset();
       status.textContent = '✅ Message sent successfully! I’ll get back to you soon.';
       status.className = 'form-status success';
