@@ -37,3 +37,19 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // IMPORTANT: Do not put code here that uses variables defined above!
+const popover = document.getElementById('contactPopover');
+
+if (popover) {
+    popover.addEventListener('toggle', () => {
+        if (popover.matches(':popover-open')) {
+            document.documentElement.classList.add('modal-open');
+            document.body.classList.add('modal-open');
+        } else {
+            document.documentElement.classList.remove('modal-open');
+            document.body.classList.remove('modal-open');
+        }
+    });
+}
+popover.addEventListener('click', e => {
+    if (e.target === popover) popover.hidePopover();
+});
