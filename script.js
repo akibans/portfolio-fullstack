@@ -1,97 +1,142 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Elements ---
-    const menuToggle = document.querySelector('#mobile-menu');
-    const navLinks = document.querySelector('.nav-links');
 
-    if (menuToggle && navLinks) {
+    /* =====================================================
+       MOBILE MENU
+    ===================================================== */
+    const menuToggle = document.getElementById('mobile-menu');
+    const navMenu = document.querySelector('.nav-links');
+    const navItems = document.querySelectorAll('.nav-item');
+
+    if (menuToggle && navMenu) {
         menuToggle.addEventListener('click', () => {
-            // This triggers the CSS transitions we just wrote
             menuToggle.classList.toggle('active');
-            navLinks.classList.toggle('active');
-
-            // Prevents the background from scrolling when menu is open
+            navMenu.classList.toggle('active');
             document.body.classList.toggle('menu-open');
         });
     }
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+    if (
+        navMenu.classList.contains('active') &&
+        !navMenu.contains(e.target) &&
+        !menuToggle.contains(e.target)
+    ) {
+        navMenu.classList.remove('active');
+        menuToggle.classList.remove('active');
+        document.body.classList.remove('menu-open');
+    }
+});
 
-    // --- Smooth Scrolling ---
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const targetId = this.getAttribute('href');
-
-            // Only scroll if it's a valid ID and not just "#"
-            if (targetId !== '#') {
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
+    /* =====================================================
+       SMOOTH SCROLL + AUTO CLOSE MENU
+    ===================================================== */
+    navItems.forEach(link => {
+        link.addEventListener('click', e => {
+            const targetId = link.getAttribute('href');
+            if (targetId && targetId.startsWith('#')) {
+                const target = document.querySelector(targetId);
+                if (target) {
                     e.preventDefault();
-                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                    target.scrollIntoView({ behavior: 'smooth' });
 
-                    // Close mobile menu after clicking a link
-                    menuToggle.classList.remove('active');
-                    navLinks.classList.remove('active');
+                    // Close mobile menu
+                    menuToggle?.classList.remove('active');
+                    navMenu?.classList.remove('active');
                     document.body.classList.remove('menu-open');
                 }
             }
         });
     });
-});
 
-// IMPORTANT: Do not put code here that uses variables defined above!
-const popover = document.getElementById('contactPopover');
+    /* =====================================================
+       NAV SCROLL SPY — ACTIVE LINK
+    ===================================================== */
+    const sections = document.querySelectorAll('section[id]');
 
-if (popover) {
-    popover.addEventListener('toggle', () => {
-        if (popover.matches(':popover-open')) {
-            document.documentElement.classList.add('modal-open');
-            document.body.classList.add('modal-open');
-        } else {
-            document.documentElement.classList.remove('modal-open');
-            document.body.classList.remove('modal-open');
-        }
-    });
+    function activateNavLink() {
+        const scrollY = window.pageYOffset;
 
-    popover.addEventListener('click', e => {
-        if (e.target === popover) popover.hidePopover();
-    });
-}
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 120;
+            const sectionHeight = section.offsetHeight;
+            const sectionId = section.getAttribute('id');
 
-// AJAX Contact Form Submission
-const form = document.getElementById('ajaxContactForm');
-
-if (form) {
-  const status = form.querySelector('.form-status');
-  const btnText = form.querySelector('.btn-text');
-  const btnLoader = form.querySelector('.btn-loader');
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    btnText.hidden = true;
-    btnLoader.hidden = false;
-    status.hidden = true;
-
-    try {
-      const formData = new FormData(form);
-
-      await fetch('/', {
-        method: 'POST',
-        body: new URLSearchParams(formData).toString()
-        // ❌ NO headers here
-      });
-
-      // ✅ SUCCESS
-      form.reset();
-      status.textContent = '✅ Message sent successfully! I’ll get back to you soon.';
-      status.className = 'form-status success';
-      status.hidden = false;
-
-    } catch (error) {
-      status.textContent = '❌ Something went wrong. Please try again.';
-      status.className = 'form-status error';
-      status.hidden = false;
-    } finally {
-      btnText.hidden = false;
-      btnLoader.hidden = true;
+            if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                navItems.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${sectionId}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
     }
-  });
-}
+
+    window.addEventListener('scroll', activateNavLink);
+    activateNavLink(); // run once on load
+
+    /* =====================================================
+       POPOVER LOGIC
+    ===================================================== */
+    const popover = document.getElementById('contactPopover');
+
+    if (popover) {
+        popover.addEventListener('toggle', () => {
+            document.documentElement.classList.toggle(
+                'modal-open',
+                popover.matches(':popover-open')
+            );
+            document.body.classList.toggle(
+                'modal-open',
+                popover.matches(':popover-open')
+            );
+        });
+
+        popover.addEventListener('click', e => {
+            if (e.target === popover) popover.hidePopover();
+        });
+    }
+
+    /* =====================================================
+       AJAX CONTACT FORM (NETLIFY)
+    ===================================================== */
+    const form = document.getElementById('ajaxContactForm');
+
+    if (form) {
+        const status = form.querySelector('.form-status');
+        const btnText = form.querySelector('.btn-text');
+        const btnLoader = form.querySelector('.btn-loader');
+
+        form.addEventListener('submit', async e => {
+            e.preventDefault();
+
+            btnText.hidden = true;
+            btnLoader.hidden = false;
+            status.hidden = true;
+
+            try {
+                const formData = new FormData(form);
+
+                await fetch('/', {
+                    method: 'POST',
+                    body: new URLSearchParams(formData).toString()
+                });
+
+                form.reset();
+                status.textContent = '✅ Message sent successfully! I’ll get back to you soon.';
+                status.className = 'form-status success';
+                status.hidden = false;
+
+            } catch {
+                status.textContent = '❌ Something went wrong. Please try again.';
+                status.className = 'form-status error';
+                status.hidden = false;
+
+            } finally {
+                btnText.hidden = false;
+                btnLoader.hidden = true;
+            }
+        });
+    }
+
+});
