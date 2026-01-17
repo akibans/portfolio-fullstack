@@ -1,142 +1,125 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     /* =====================================================
-       MOBILE MENU
+       MOBILE MENU TOGGLE
     ===================================================== */
     const menuToggle = document.getElementById('mobile-menu');
     const navMenu = document.querySelector('.nav-links');
     const navItems = document.querySelectorAll('.nav-item');
 
     if (menuToggle && navMenu) {
-        menuToggle.addEventListener('click', () => {
+        // Toggle menu on hamburger click
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent immediate closing
             menuToggle.classList.toggle('active');
             navMenu.classList.toggle('active');
-            document.body.classList.toggle('menu-open');
         });
     }
-    // Close mobile menu when clicking outside
+
+    // Close mobile menu when clicking anywhere else on the page
     document.addEventListener('click', (e) => {
-    if (
-        navMenu.classList.contains('active') &&
-        !navMenu.contains(e.target) &&
-        !menuToggle.contains(e.target)
-    ) {
-        navMenu.classList.remove('active');
-        menuToggle.classList.remove('active');
-        document.body.classList.remove('menu-open');
-    }
-});
+        if (navMenu && navMenu.classList.contains('active')) {
+            if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        }
+    });
 
     /* =====================================================
-       SMOOTH SCROLL + AUTO CLOSE MENU
+       SMOOTH SCROLLING
     ===================================================== */
-    navItems.forEach(link => {
-        link.addEventListener('click', e => {
-            const targetId = link.getAttribute('href');
-            if (targetId && targetId.startsWith('#')) {
-                const target = document.querySelector(targetId);
-                if (target) {
-                    e.preventDefault();
-                    target.scrollIntoView({ behavior: 'smooth' });
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
 
-                    // Close mobile menu
-                    menuToggle?.classList.remove('active');
-                    navMenu?.classList.remove('active');
-                    document.body.classList.remove('menu-open');
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                // Calculate header offset
+                const headerOffset = 80; 
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
+
+                // Close mobile menu after clicking a link
+                if (menuToggle && navMenu) {
+                    menuToggle.classList.remove('active');
+                    navMenu.classList.remove('active');
                 }
             }
         });
     });
 
     /* =====================================================
-       NAV SCROLL SPY — ACTIVE LINK
+       ACTIVE LINK HIGHLIGHTER (SCROLL SPY)
     ===================================================== */
     const sections = document.querySelectorAll('section[id]');
-
+    
     function activateNavLink() {
         const scrollY = window.pageYOffset;
-
+        
         sections.forEach(section => {
-            const sectionTop = section.offsetTop - 120;
             const sectionHeight = section.offsetHeight;
+            const sectionTop = section.offsetTop - 100; // Offset for navbar
             const sectionId = section.getAttribute('id');
+            const navLink = document.querySelector(`.nav-links a[href*=${sectionId}]`);
 
-            if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-                navItems.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${sectionId}`) {
-                        link.classList.add('active');
-                    }
-                });
+            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                navLink?.classList.add('active');
+            } else {
+                navLink?.classList.remove('active');
             }
         });
     }
 
     window.addEventListener('scroll', activateNavLink);
-    activateNavLink(); // run once on load
 
     /* =====================================================
-       POPOVER LOGIC
+       CONTACT FORM SUBMISSION (NETLIFY / GENERIC)
     ===================================================== */
-    const popover = document.getElementById('contactPopover');
+    const contactForm = document.querySelector('.contact-form');
 
-    if (popover) {
-        popover.addEventListener('toggle', () => {
-            document.documentElement.classList.toggle(
-                'modal-open',
-                popover.matches(':popover-open')
-            );
-            document.body.classList.toggle(
-                'modal-open',
-                popover.matches(':popover-open')
-            );
-        });
-
-        popover.addEventListener('click', e => {
-            if (e.target === popover) popover.hidePopover();
-        });
-    }
-
-    /* =====================================================
-       AJAX CONTACT FORM (NETLIFY)
-    ===================================================== */
-    const form = document.getElementById('ajaxContactForm');
-
-    if (form) {
-        const status = form.querySelector('.form-status');
-        const btnText = form.querySelector('.btn-text');
-        const btnLoader = form.querySelector('.btn-loader');
-
-        form.addEventListener('submit', async e => {
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
+            
+            const button = contactForm.querySelector('button[type="submit"]');
+            const originalText = button.innerText;
 
-            btnText.hidden = true;
-            btnLoader.hidden = false;
-            status.hidden = true;
+            // 1. Show Loading State
+            button.innerText = 'Sending...';
+            button.disabled = true;
 
             try {
-                const formData = new FormData(form);
-
+                const formData = new FormData(contactForm);
+                
+                // Submit to Netlify (or your backend)
                 await fetch('/', {
                     method: 'POST',
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
                     body: new URLSearchParams(formData).toString()
                 });
 
-                form.reset();
-                status.textContent = '✅ Message sent successfully! I’ll get back to you soon.';
-                status.className = 'form-status success';
-                status.hidden = false;
+                // 2. Success Feedback
+                alert("Message sent successfully! I'll get back to you soon.");
+                contactForm.reset();
 
-            } catch {
-                status.textContent = '❌ Something went wrong. Please try again.';
-                status.className = 'form-status error';
-                status.hidden = false;
+            } catch (error) {
+                // 3. Error Feedback
+                alert("Something went wrong. Please try again.");
+                console.error("Form error:", error);
 
             } finally {
-                btnText.hidden = false;
-                btnLoader.hidden = true;
+                // 4. Reset Button
+                button.innerText = originalText;
+                button.disabled = false;
             }
         });
     }
-
 });

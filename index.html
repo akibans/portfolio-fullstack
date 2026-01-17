@@ -3,24 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Akib Ansari | Frontend / Full-Stack Developer</title>
-  <meta name="description" content="Frontend & Full-Stack Developer specializing in React, JavaScript, Node.js, and MongoDB. Building scalable, user-focused web applications." />
-<meta name="keywords" content="Frontend Developer, Full Stack Developer, React, JavaScript, Node.js, MongoDB, Web Developer" />
-    <meta name="author" content="Akib Ansari" />
-
+  
+  <meta name="description" content="Frontend & Full-Stack Developer specializing in React and Node.js." />
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<!-- NAVBAR -->
 <nav class="navbar">
   <div class="container nav-container">
-    <a href="#" class="logo">AKIB<span>.</span></a>
+    <a href="#" class="logo">
+      <img src="assets/logo.png" alt="Akib Ansari Logo" />
+    </a>
 
     <div class="menu-toggle" id="mobile-menu">
       <span class="bar"></span>
@@ -33,30 +32,23 @@
       <li><a href="#skills" class="nav-item">Skills</a></li>
       <li><a href="#projects" class="nav-item">Projects</a></li>
       <li>
-        <button class="nav-link-btn" popovertarget="contactPopover">
-          Let’s Talk
-        </button>
+        <button class="nav-link-btn" popovertarget="contactPopover">Let’s Talk</button>
       </li>
     </ul>
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="container">
     <span class="badge">Marketing → Frontend / Full-Stack Developer</span>
-
     <h1>
       Building user-focused web products with
       <span class="text-gradient">business & marketing insight.</span>
     </h1>
-
     <p class="desc">
-      Former Hindustan Unilever professional transitioning into Frontend and Full-Stack
-      development. I blend real-world consumer understanding with modern web technologies
-      to build applications that are scalable, intuitive, and conversion-focused.
+      Former Hindustan Unilever professional transitioning into Frontend and Full-Stack development. 
+      I blend real-world consumer understanding with modern web technologies.
     </p>
-
     <div class="buttons">
       <a href="#projects" class="btn primary">View Projects →</a>
       <button class="btn secondary" popovertarget="contactPopover">Let’s Connect</button>
@@ -64,94 +56,89 @@
   </div>
 </section>
 
-<!-- EXPERIENCE -->
 <section id="experience" class="section">
   <div class="container">
-    <h2 class="section-title">Professional Experience</h2>
-
+    <h2 class="section-title">Professional Journey</h2>
     <div class="timeline">
+      
       <div class="timeline-item">
-        <div class="time-dot"></div>
-        <h3>Frontend / Full-Stack Developer</h3>
-        <p class="company">Self-Learning & Projects | Present</p>
-        <p>
-          Building responsive, scalable web applications using React, Node.js,
-          MongoDB, and modern JavaScript. Focused on clean UI, performance,
-          and real-world usability.
-        </p>
+        <div class="timeline-content">
+          <span class="timeline-date">Present</span>
+          <h3>Frontend / Full-Stack Developer</h3>
+          <p class="company">Project-Based & Self-Learning</p>
+          <p class="timeline-desc">
+            Building responsive, scalable web applications using <strong>React, Node.js, MongoDB, and modern JavaScript</strong>. 
+            I focus on clean UI, performance, and real-world usability to ensure technical excellence.
+          </p>
+        </div>
       </div>
 
       <div class="timeline-item">
-        <div class="time-dot"></div>
-        <h3>Marketing Executive</h3>
-        <p class="company">Hindustan Unilever (HUL) | 2023 – 2025</p>
-        <p>
-          Worked closely with consumer insights, market trends, and performance metrics.
-          This background now drives my user-centric approach to software development.
-        </p>
+        <div class="timeline-content">
+          <span class="timeline-date">2023 – 2025</span>
+          <h3>Marketing Executive</h3>
+          <p class="company">Hindustan Unilever (HUL)</p>
+          <p class="timeline-desc">
+            Worked closely with consumer insights, market trends, and performance metrics. 
+            This corporate foundation drives my <strong>user-centric approach</strong> to development—understanding the 'Why' before the 'How'.
+          </p>
+        </div>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- SKILLS -->
 <section id="skills" class="section">
   <div class="container">
     <h2 class="section-title">Technical Skillset</h2>
-
     <div class="skills-grid">
       <div class="skill-category">
         <h3>Frontend</h3>
         <ul>
           <li>React.js & Hooks</li>
           <li>JavaScript (ES6+)</li>
-          <li>HTML, CSS, Responsive Design</li>
+          <li>HTML, CSS, Responsive</li>
         </ul>
       </div>
-
       <div class="skill-category">
         <h3>Backend</h3>
         <ul>
           <li>Node.js & Express</li>
           <li>MongoDB & REST APIs</li>
-          <li>Authentication & CRUD Systems</li>
+          <li>Authentication</li>
         </ul>
       </div>
-
       <div class="skill-category">
         <h3>Professional Edge</h3>
         <ul>
-          <li>Consumer Behavior Analysis</li>
-          <li>Business & Product Thinking</li>
-          <li>Git, GitHub & Project Workflow</li>
+          <li>Consumer Behavior</li>
+          <li>Product Thinking</li>
+          <li>Git & GitHub</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PROJECTS -->
 <section id="projects" class="section">
   <div class="container">
     <h2 class="section-title">Selected Projects</h2>
-
+    
     <div class="project-grid">
+      
       <div class="project-card">
         <div class="project-image">
-          <div class="img-placeholder">QR Generator</div>
+          <img src="assets/projects/qr-generator.webp" alt="Smart QR Generator">
         </div>
-
         <div class="project-content">
-          <span class="tech-tag">Node.js • NPM</span>
-          <h3>Smart QR Engine</h3>
-          <p>
-            A backend utility designed for offline-to-online marketing workflows.
-            Converts URLs into QR codes instantly.
-          </p>
-
-          <a href="https://github.com/akibans" target="_blank" class="link">
-            View on GitHub
-          </a>
+          <span class="tech-tag">Node.js • Express • JS</span>
+          <h3>Smart QR Generator</h3>
+          <p>A full-stack web app that generates downloadable QR codes from URLs with validation and live preview.</p>
+          <div class="project-links">
+            <a href="https://smart-qr-generator-m7rk.onrender.com" target="_blank" class="link primary">Live Demo</a>
+            <a href="https://github.com/akibans/smart-qr-generator" target="_blank" class="link muted">GitHub</a>
+          </div>
         </div>
       </div>
 
@@ -159,82 +146,54 @@
         <div class="project-image">
           <div class="img-placeholder">Automation Tool</div>
         </div>
-
         <div class="project-content">
           <span class="tech-tag">JavaScript • APIs</span>
           <h3>Client Reminder Bot</h3>
-          <p>
-            Automated reminder system to improve client communication
-            and reduce manual follow-ups.
-          </p>
-
-          <span class="link muted">Coming Soon</span>
+          <p>Automated reminder system to improve client communication and reduce manual follow-ups.</p>
+          <div class="project-links">
+            <span class="link muted">Coming Soon</span>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
+
+    </div> </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact" class="section">
   <div class="container">
     <h2 class="section-title">Let’s Work Together</h2>
 
-    <p class="contact-intro">
-      I’m currently open to Frontend and Entry-Level Full-Stack Developer opportunities.
-      If you’re looking for someone with strong technical fundamentals and real
-      corporate experience, let’s connect.
-    </p>
-
-    <p class="contact-sub">
-      Use the form below or choose a quick contact option.
-      I usually respond within 24 hours.
-    </p>
-
-    <div class="contact-details">
-      <p><strong>Email:</strong> <a href="mailto:akib81257@gmail.com">akib81257@gmail.com</a></p>
-      <p><strong>Location:</strong> Mumbai, India</p>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT FORM -->
-<section class="section">
-  <div class="container">
-    <form
-      name="contact"
-      method="POST"
-      data-netlify="true"
-      netlify-honeypot="bot-field"
-      class="contact-form"
-      id="ajaxContactForm"
-    >
-      <input type="hidden" name="form-name" value="contact" />
-
-      <p hidden>
-        <label>Don’t fill this out: <input name="bot-field" /></label>
+    <div class="contact-content-wrapper">
+      <p class="contact-intro">
+        I’m currently open to Frontend and Entry-Level Full-Stack Developer opportunities. 
+        If you’re looking for someone with strong technical fundamentals and real corporate experience, let’s connect.
       </p>
 
-      <input type="text" name="name" placeholder="Full Name" required />
-      <input type="email" name="email" placeholder="Work Email" required />
-      <textarea name="message" placeholder="Briefly describe your requirement" required></textarea>
+      <p class="contact-sub">
+        Use the form below or choose a quick contact option. I usually respond within 24 hours.
+      </p>
 
-      <button type="submit" class="btn primary">
-        <span class="btn-text">Send Message</span>
-        <span class="btn-loader" hidden>Sending…</span>
-      </button>
+      <div class="contact-details">
+        <p><strong>Email:</strong> <a href="mailto:akib81257@gmail.com">akib81257@gmail.com</a></p>
+        <p><strong>Location:</strong> Mumbai, India</p>
+      </div>
+    </div>
 
-      <p class="form-status" hidden></p>
+    <form name="contact" method="POST" class="contact-form">
+        <input type="hidden" name="form-name" value="contact" /> 
+        <input type="text" name="name" placeholder="Full Name" required />
+        <input type="email" name="email" placeholder="Work Email" required />
+        <textarea name="message" rows="5" placeholder="Briefly describe your requirement" required></textarea>
+        
+        <button type="submit" class="btn primary">Send Message</button>
     </form>
   </div>
 </section>
 
-<!-- POPOVER -->
 <div id="contactPopover" popover class="contact-popover">
   <div class="modal-content">
     <h3>Quick Contact</h3>
     <p>Select your preferred channel</p>
-
     <div class="contact-options">
       <a href="https://wa.me/917800068654" target="_blank" class="option-card">💬 WhatsApp</a>
       <a href="tel:+917800068654" class="option-card">📞 Call</a>
