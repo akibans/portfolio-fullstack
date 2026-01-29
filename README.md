@@ -1,4 +1,4 @@
-# 🚀 Full Stack Developer Portfolio
+#  Full Stack Developer Portfolio
 
 A modern, high-performance **Frontend / Junior Full Stack Developer Portfolio** designed to showcase real-world projects, technical skills, and clean UI craftsmanship. Built with scalability and performance in mind, following industry best practices.
 
