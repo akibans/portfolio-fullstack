@@ -23,10 +23,10 @@ A personal **Frontend / Junior Full Stack Developer portfolio** built to showcas
 ## 📸 Screenshots
 
 ### Home Section
-![Home](assets/home.png)
+![Home](public\assets\home.png)
 
 ### Projects Section
-![Projects](assets/projects.png)
+![Projects](public\assets/projects.png)
 
 ---
 
