@@ -1,4 +1,4 @@
-#  Full Stack Developer Portfolio
+# Full Stack Developer Portfolio
 
 A modern, high-performance **Frontend / Junior Full Stack Developer Portfolio** designed to showcase real-world projects, technical skills, and clean UI craftsmanship. Built with scalability and performance in mind, following industry best practices.
 
@@ -10,16 +10,16 @@ A modern, high-performance **Frontend / Junior Full Stack Developer Portfolio** 
 
 ## ✨ Overview
 
-This portfolio highlights my journey as a developer, focusing on **clean code**, **responsive design**, and **modern tooling**. The project is structured to be easily extendable, with a planned migration to a full React-based architecture.
+This portfolio highlights my journey as a developer, focusing on **clean code**, **responsive design**, and **modern tooling**. The project is structured to be easily extendable and is currently built using modern frontend tooling with scope for future full-stack enhancements.
 
 ---
 
 ## 🔥 Key Features
 
-- Fully responsive layout for mobile, tablet, and desktop  
+- Fully responsive layout (mobile, tablet, desktop)  
 - Clean and modern UI with smooth transitions  
 - Fast builds and optimized performance using Vite  
-- Scalable structure for future React and backend upgrades  
+- Scalable structure suitable for React-based growth  
 
 ---
 
@@ -29,7 +29,7 @@ This portfolio highlights my journey as a developer, focusing on **clean code**,
 - HTML5  
 - CSS3  
 - JavaScript (ES6+)  
-- React.js (planned)
+- React.js  
 
 ### Tooling
 - Vite  
@@ -44,10 +44,10 @@ This portfolio highlights my journey as a developer, focusing on **clean code**,
 ## 📸 Screenshots
 
 ### Home Section
-![Home](assets/home.png)
+![Home](public/assets/home.png)
 
 ### Projects Section
-![Projects](assets/projects.png)
+![Projects](public/assets/projects.png)
 
 ---
 
